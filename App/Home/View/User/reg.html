@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>会员注册 - {$Think.CONFIG.title}</title>
+<script type='text/javascript'>var cscms_path='http://www.27pan.com/';</script>
+<link rel='stylesheet' href='__PUBLIC__/reg/css/layui.css'>
+<script type='text/javascript' src='__PUBLIC__/reg/js/layui.js'></script>
+<script type='text/javascript' src='__PUBLIC__/reg/js/jquery.min.js'></script>
+<script type='text/javascript' src='__PUBLIC__/reg/js/cscms.js'></script>
+<link rel="stylesheet" href="__PUBLIC__/reg/css/login.css">
+<script type='text/javascript' src='__PUBLIC__/reg/js/user.js'></script>
+<style>
+	.b-title{
+		overflow: hidden;
+	}
+	.regist-last-txt{
+		float: right;
+		padding-top: 10px;
+	}
+	.regist-last-txt a{
+		color: #2277da;
+	}
+	.regist-last-txt a:hover{
+		text-decoration: underline;
+	}
+	@media screen and (max-width: 768px){
+		.regist-last-txt{
+			display: none;
+		}
+	}
+</style>
+</head>
+<body>
+<div class="body">
+	<div class="regist-wrapper">
+		<div class="regist-header ">
+		<a href="#" class="logo zh"></a>
+		</div>
+		<div class="regist-content ">
+			<div class="ct-inner">
+				<div class="tab">
+					      <form class="layui-form layui-form-pane" action="{:U('User/save')}" method="post">
+					<div class="regist-form" data-formtype="mail" style="display:">
+						<ul class="form-list">
+							<li>
+							<div class="form-input">
+								<div class="form-unit tip-unit">
+									<label class="input-tips J-placeholder" style="display: none;">请尽量填写中文用户名</label>
+                   <input type="text" id="username" name="username" required lay-verify="required" autocomplete="off" placeholder="请尽量填写中文用户名" value="" class="qc-log-input-text lg">
+								</div>
+							</div>
+							</li>
+							<li>
+							<div class="form-input">
+								<div class="form-unit">
+								<label class="input-tips J-placeholder" style="display: none;">密码</label>
+								 <input type="password" id="userpass" name="userpass" required lay-verify="required" autocomplete="off" placeholder="请填写一个6-20位的密码" value="" class="qc-log-input-text lg">
+								</div>
+							</div>
+							</li>
+							<li>
+							<div class="form-input">
+								<div class="form-unit">
+							<label class="input-tips J-placeholder" style="display: none;">确认密码</label>
+							  <input type="password" name="repassword" required lay-verify="required" autocomplete="off" placeholder="请确认填写的密码" value="" class="qc-log-input-text lg">
+								</div>
+							</div>
+							</li>
+							
+														<li>
+							<div class="form-input">
+								<div class="form-unit tip-unit">
+									<label class="input-tips J-placeholder" style="display: none;">请填写正确的邮箱地址</label>
+									  <input type="text" name="useremail" required lay-verify="email" autocomplete="off" placeholder="请填写正确的邮箱地址" value="" class="qc-log-input-text lg"">
+								</div>
+							</div>
+							</li>
+							
+							  
+							<li>
+							<div class="form-input fm-verify">
+								<div class="form-unit">
+									<label class="input-tips J-placeholder" style="display: none;">验证码</label>
+                  <input type="text" name="usercode" required lay-verify="required" autocomplete="off" placeholder="请填写右侧的验证码" value="" class="qc-log-input-text">
+               <a style="float:right;margin-right:30px" href="javascript:reloadCodes();" title="看不清楚？点击更换验证码" style="height: 36px;display: block;float: left;border: 1px solid #e2e2e2;"><img src="{:U('User/verify')}" class="verifyimg" style="height: 100%"></a>
+								</div>
+							</div>
+							</li>
+							 
+							
+						</ul>
+			  
+					</div>
+			     
+					<div class="op-btn">
+						<button class="qc-log-btn lg" lay-submit lay-filter="">确认注册</button>
+          </div>
+					 </form>
+					
+					<div class="sp-line">
+						<span class="line"></span>
+						<a href="#" class="title links">QQ交流①群：636815536</a>
+					</div>
+				</div>
+			</div>
+		</div>
+ 
+		<div class="regist">
+			<p class="tag-line">
+				已有账号？
+				<a  class="link" href="/index.php/user/login">立即登录</a>
+			</p>
+		</div>
+	</div>
+ 
+<div class="lg-footer J-loginLanguage">
+ <div class="copyright">
+				<p class="tag-line">
+				
+ {$Think.CONFIG.footer}&nbsp;|&nbsp;
+                 永久免费的CDN多媒体网盘</p>
+		</div>
+		<!--copyright end-->
+	</div>
+</div>
+ <script type="text/javascript">
+    function reloadCodes(){
+        $('.verifyimg').attr('src', "{:U('User/verify')}?" + Math.random());
+    }
+    $(document).ready(function() {
+        setTimeout(function(){
+            $('#reset').click();
+        },50);
+    });
+</script>
+</body>
+</html>

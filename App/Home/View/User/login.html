@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<title>会员登录 - 27盘 - {$Think.CONFIG.title}</title>
+<script type='text/javascript'>var cscms_path='http://www.27pan.com/';</script>
+<link rel='stylesheet' href='__PUBLIC__/login/css/layui.css'>
+<script type='text/javascript' src='__PUBLIC__/login/js/layui.js'></script>
+<script type='text/javascript' src='__PUBLIC__/login/js/jquery.min.js'></script>
+<script type='text/javascript' src='__PUBLIC__/login/js/cscms.js'></script>
+<link rel="stylesheet" href="__PUBLIC__/login/css/login.css">
+<script type='text/javascript' src='__PUBLIC__/login/js/user.js'></script>
+</head>
+<body class="">
+<div class="login-body">
+	<div class="login-wrapper" style="background-image:url(__PUBLIC__/login/images/qcloud-login-bg.jpg)">
+		<div class="login-inner">
+			<div class="lg-aside">
+				<div class="lg-logo">
+					<a href="#" hotrep="login.index.header.logo"><i class="lg-logo-icon"></i></a>
+				</div>
+				<div class="lg-aside-event">
+					<div class="lg-aside-event-tit">
+						<div class="lg-aside-event-icon">
+							<img src="picture/icon.svg" alt="">
+						</div>
+						<h2>免费多媒体云盘系统</h2>
+					</div>
+					<div class="lg-aside-event-con">
+						<div class="lg-aside-event-txt">
+							<icon class="lg-aside-event-txt-icon"></icon><span>全球领先的云转码服务平台</span>
+						</div>
+						<div class="lg-aside-event-txt">
+							<icon class="lg-aside-event-txt-icon"></icon><span>高质量、高稳定性的CDN服务</span>
+						</div>
+						<div class="lg-aside-event-txt">
+							<icon class="lg-aside-event-txt-icon"></icon><span>永久免费的网盘解决方案</span>
+						</div>
+					</div>
+				</div>
+			</div>
+ <form class="layui-form layui-form-pane" action="{:U('User/save')}" method="post">
+			<div class="lg-content">
+				<div class="qc-pt-login-content" id="loginBox">
+					<div class="qc-pt-login-content J-commonLoginContent">
+						<div class="login-tab">
+							<h1 class="login-tab-title J-txtLoginTitle">会员登录</h1>
+							<div class="login-box J-loginContentBox J-qcloginBox" style="">
+								<div class="login-form">
+									<div class="tc-msg error" style="display:none">
+										<span class="msg-icon"></span>
+										<div class="tip-info J-loginTip">
+										</div>
+									</div>
+									<ul class="form-list">
+										<li>
+										<div class="form-input">
+											<div class="form-unit tip-unit">
+												  <input type="text" name="username" required lay-verify="required" autocomplete="off" placeholder="注册帐号后请与群管理员辣椒联系审核" value="" class="qc-log-input-text lg J-username">
+											</div>
+										</div>
+										</li>
+										<li>
+										<div class="form-input">
+											<div class="form-unit">
+												<label class="input-tips" style="display:none">密码</label><input class="qc-log-input-text lg J-password" type="password" name="userpass" required lay-verify="required" autocomplete="off" placeholder="请输入您的密码" value="">
+											</div>
+										</div>
+										</li>
+                   
+										<li  class="J-vcodeArea">
+										<div class="form-input fm-security">
+											<div class="form-unit">
+												<label class="input-tips" style="display:none">验证码</label>    <input type="text" name="usercode" required lay-verify="required" autocomplete="off  value="" class="qc-log-input-text J-vcodeInput" placeholder="验证码" style="width:124px"><a  href="javascript:reloadCodes();" title="看不清楚？点击更换验证码" class="verifyimg security-num J-changeVCode"><img src="{:U('User/verify')}" class="security-img J-vcodeImg verifyimg"></a>
+											</div>
+										</div>
+										</li>
+										 
+							 <input type="hidden" name="token" value="ia3okBAMGl"/>
+									</ul>
+								</div>
+								<div class="op-btn">
+					 <button class="qc-log-btn J-loginBtn" lay-submit lay-filter="" ><input type="button"  value="登 录"  class="qc-log-btn J-loginBtn">	</button>
+ 
+									<div class="m-loading">
+					 
+									</div>
+									</button>
+									<div class="psw-info">
+							<a href="{:U('User/reg')}" class="forgot-psw J-link" >还没有帐号？立即注册</a>   <a  class="forgot-psw J-link" >&nbsp;审核联系群管理员辣椒&nbsp;</a>		
+									</div>
+								</div>
+             </form>
+							</div>
+							<div class="outside-login">
+								<div class="outside-login-tit">
+									<span class="J-txtMoreLoginType">QQ交流②群：681307187</span>
+								</div>
+								<div class="outside-login-con">
+ 
+								</div>
+							</div>
+						</div>
+						<div class="regist">
+							<p class="tag-line">
+							<!--	还没有账号？ <a href="/index.php/user/reg/" class="link J-link"  >立即注册</a>-->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+                                                  
+  <div id="main">
+    <div class="biank" style=" margin-top:35px;">
+    	<h2>推广合作</h2>
+        <div class="link">
+        <a href="tencent://message/?uin=2234905841&amp;Site=在线客服&amp;Menu" target="_blank"> <font color="#f00">官方收量，全网最高价包站➕  qq: 2234905841 </font></a>
+        <a href=" http://www.tv6.com/" target="_blank"> TV6在线影视 </a>
+        <a href=" http://www.maccms.com/" target="_blank"> 苹果CMS影视 </a>
+        <a href="http://www.seacms.net/" target="_blank"> 海洋CMS影视 </a>
+        <a href="http://www.206dy.com/" target="_blank"> TV6免费影视资源采集 </a>
+        <a href="http://www.206dy.com/" target="_blank"> 全网免费VIP解析 </a>
+        <a href="#" target="_blank">QQ交流群：681307187</a>
+        </div>
+    </div>
+</div>                                           
+ 
+		<div class="lg-footer">
+			<div class="lg-footer-inner">
+				 
+				<div class="switch" id="J-miniSwitchArea" style="display:none">
+					<p class="tag-line">
+						<a href="#" class="en">Tencent Cloud(China)</a>
+					</p>
+				</div>
+				<div class="copyright">
+					<p class="tag-line">
+				{$Think.CONFIG.footer}&nbsp;|&nbsp;
+                 永久免费的CDN多媒体网盘</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    function reloadCodes(){
+        $('.verifyimg').attr('src', "{:U('User/verify')}?" + Math.random());
+    }
+</script>
+<div style="display:none;"><script src="__PUBLIC__/login/js/z_stat.php" language="JavaScript"></script></div>                                           
+</body>
+</html>
+ 

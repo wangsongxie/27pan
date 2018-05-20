@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>我的视频 - 会员中心</title>
+<script type='text/javascript'>var cscms_path='http://www.27pan.com/';</script>
+<link rel='stylesheet' href='http://www.27pan.com/packs/layui/css/layui.css'>
+<script type='text/javascript' src='http://www.27pan.com/packs/layui/layui.js'></script>
+<script type='text/javascript' src='http://www.27pan.com/packs/js/jquery.min.js'></script>
+<script type='text/javascript' src='http://www.27pan.com/packs/js/cscms.js'></script>
+    <meta name="Keywords" content="27盘,视频cdn,视频网盘,免费视频网盘" />
+    <meta name="Description" content="27盘致力打造全国最大的永久免费CDN多媒体加速方案！
+" />
+            <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="http://www.27pan.com/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="http://www.27pan.com/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="http://www.27pan.com/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="http://www.27pan.com/assets/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://www.27pan.com/assets/layouts/layout4/css/themes/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="http://www.27pan.com/assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME LAYOUT STYLES --> 
+         <link href="http://www.27pan.com/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" /> 
+    <link href="http://www.27pan.com/assets/pages/css/faq.min.css" rel="stylesheet" type="text/css" />
+</head>
+    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+        <!-- BEGIN HEADER -->
+            <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+ 
+                    <a href="/index.php/vod/user/vod/add">
+                        <img src="/assets/img/logo.png" alt="logo" class="logo-default" /> </a>
+                    <div class="menu-toggler sidebar-toggler">
+                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                    </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN PAGE ACTIONS -->
+                <!-- DOC: Remove "hide" class to enable the page header actions -->
+                
+                <div class="page-actions">
+                    <div class="btn-group">
+                        <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <span class="hidden-sm hidden-xs">快捷操作&nbsp;</span>
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="//www.27pan.com/duan/27pan.exe" target="_blank">
+                                    <i class="fa fa-download"></i> 下载客户端 </a>
+                            </li>
+                            <li>
+                                <a href="/index.php/vod/user/uclass/edit/">
+                                    <i class="fa fa-plus"></i> 添加分类 </a>
+                            </li>
+                            
+                            <li class="divider"> </li>
+                            <li>
+                                <a href="/index.php/vod/user/vod">
+                                    <i class="fa fa-folder-open"></i> 我的视频
+                                    <span class="badge badge-success">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/index.php/vod/user/fav">
+                                  <i class="fa fa-heart"></i> 我的收藏 
+                                       <span class="badge badge-success">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                  <a target="_blank" href="http://ad.27pan.com"><span class="caption-subject font-red sbold uppercase">27盘官方广告收量，全网最高价包站网址：ad.27pan.com &nbsp;</span></a>
+                </div>
+                
+                
+     
+                <!-- END PAGE ACTIONS -->
+                <!-- BEGIN PAGE TOP -->
+                
+                <div class="page-top">
+                    <!-- BEGIN HEADER SEARCH BOX -->
+                    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+                    
+                    
+                    <form class="search-form open" action="http://www.27pan.com/index.php/vod/search">
+                        <div class="input-group">
+                        	  <input type="text" name="key" id="key" class="form-control input-sm" placeholder="请输入视频标题..." value="">
+                       
+                            <span class="input-group-btn">
+                                <a href="javascript:;" class="btn submit" lay-submit lay-filter="search">
+                                    <i class="icon-magnifier"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </form>
+                    
+                 
+                    <!-- END HEADER SEARCH BOX -->
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+               				<div id='cscms_login'  class='top-menu'>
+								<ul class="nav navbar-nav pull-right">
+               
+                            <!-- END TODO DROPDOWN -->
+                            <!-- BEGIN USER LOGIN DROPDOWN -->
+                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <li class="dropdown dropdown-user dropdown-dark">
+                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <span class="username username-hide-on-mobile">{$username}</span>
+                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                                       <img alt="{$username}的头像" src="http://www.27pan.com/attachment/nan_nopic.jpg" class="img-circle">   </a>
+                          
+                            </li>
+                            <!-- END USER LOGIN DROPDOWN -->
+                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                          <li class="dropdown dropdown-extended dropdown-notification dropdown-dark">
+                                <a href="{:U('User/logout')}" class="dropdown-toggle">
+                                    <i class="icon-logout"></i>
+                                </a>
+                        
+                            </li>
+                           
+                            <!-- END QUICK SIDEBAR TOGGLER -->
+                        </ul>
+							
+							
+							
+							</div>
+		        <script type='text/javascript'>
+		            var cscms_loginlink = 'http://www.27pan.com/index.php/api/ulog/log/user';
+		            var cscms_loginaddlink = 'http://www.27pan.com/index.php/api/ulog/login';
+		            var cscms_logoutlink = 'http://www.27pan.com/index.php/api/ulog/logout';
+		            //cscms.login();
+		        </script>
+                    <!-- END TOP NAVIGATION MENU -->
+                </div>
+                <!-- END PAGE TOP -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        
+        
+        
+        		 
+ <!--
+    <div class="header">
+        <div class="w960">
+            <a class="logo" href="http://www.27pan.com/" title="27盘 - 永久免费的CDN多媒体网盘 - 27pan.com"></a>
+            <ul class="layui-nav" lay-filter="">
+                <li class="layui-nav-item layui-this"><a href="http://www.27pan.com/">首页</a></li>
+                
+                <li class="layui-nav-item">
+                    <a href="http://www.27pan.com/index.php/vod">视频</a>
+                </li>
+                
+                <li class="layui-nav-item"><a href="http://www.27pan.com/index.php/user">会员</a></li>
+                <li class="layui-nav-item" id="plulist">
+                    <a href="javascript:;">更多</a>
+                    <dl class="layui-nav-child">
+                    
+                        <dd style="display: none;"><a href="http://www.27pan.com/index.php/vod">视频</a></dd>
+                    
+                    </dl>
+                </li>
+            </ul>
+            <div class="user">
+                <div class="login" id="userLogin">
+                    <div id='cscms_login'  class='top-menu'></div>
+		        <script type='text/javascript'>
+		            var cscms_loginlink = 'http://www.27pan.com/index.php/api/ulog/log/user';
+		            var cscms_loginaddlink = 'http://www.27pan.com/index.php/api/ulog/login';
+		            var cscms_logoutlink = 'http://www.27pan.com/index.php/api/ulog/logout';
+		            cscms.login();
+		        </script>
+                </div>
+                <a class="word2"><span class="sokey"><i class="fa fa-search"></i></span>
+                    <form action="http://www.27pan.com/index.php/dance/search" class="search" class="layui-form">
+                    <input type="text" name="key" id="key" class="layui-input" placeholder="请输入歌曲名" value="">
+                    <button title="搜索" class="layui-btn layui-btn-small search-btn" lay-submit lay-filter="search"><i class="fa fa-search"></i></button>
+                    </input>
+                </form>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="loginmask" style=""></div>
+    <script type="text/javascript">
+        var plulen = $('#plulist').children('dl').children('dd').length;
+        if(plulen<6) $('#plulist').hide();
+    </script>
+    
+    --> 
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+ <div class="page-sidebar-wrapper">
+	<!-- BEGIN SIDEBAR -->
+	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+	<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+	<div class="page-sidebar navbar-collapse collapse">
+		<!-- BEGIN SIDEBAR MENU -->
+		<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+		<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+		<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<ul class="page-sidebar-menu" data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200">
+					<li class="nav-item start active open" id="a0">
+			<a href="javascript:;" class="nav-link nav-toggle">
+			<i class="fa fa-file-video-o"></i>
+			<span class="title">视频网盘</span>
+			<span class="arrow"></span>
+			</a>
+			<ul class="sub-menu">
+				<li class="nav-item " id="a1">
+				<a href="//www.27pan.com/duan/27pan.exe" target="_blank" class="nav-link ">
+				<i class="fa fa-download"></i>
+				<span class="title">下载客户端</span>
+				</a>
+				</li>
+        
+        <li class="nav-item" id="a2">
+				<a href="/index.php/vod/user/uclass/edit/"  class="nav-link ">
+				<i class="fa fa-plus"></i>
+				<span class="title">添加分类</span>
+				</a>
+				</li>
+					
+					<li class="nav-item" id="a3">
+				<a href="/index.php/vod/user/vod" class="nav-link ">
+				<span class="title">我的视频</span>
+				<span class="badge badge-success">0</span>
+				</a>
+				</li>
+				
+					<li class="nav-item " id="a4">
+				<a href="/index.php/vod/user/uclass" class="nav-link ">
+				<span class="title">我的分类</span>
+		    <span class="badge badge-success"> 0  </span>
+				</a>
+				</li>
+					<li class="nav-item " id="a5">
+				<a href="/index.php/vod/user/fav" class="nav-link ">
+				<span class="title">我的收藏</span>
+				<span class="badge badge-success"> 0</span>
+				</a>
+				</li>
+			  <li class="nav-item">
+				<a href="javascript:;" class="nav-link nav-toggle">
+				<i class="fa fa-folder-open"></i>
+				<span class="title">视频广场</span>
+				
+				<span class="arrow"></span>
+				
+				</a>
+				<ul class="sub-menu" id="vodlist">
+						 
+									 <li class="nav-item ">
+              		 <a href="/index.php/vod/lists/id/1" class="nav-link "> <span class="title">电影</span></a>  
+              		   </li>
+			            <li class="nav-item ">
+              		<a href="/index.php/vod/lists/id/2" class="nav-link "> <span class="title">电视剧</span></a>  
+              		   </li>
+              	  <li class="nav-item ">
+              		<a href="/index.php/vod/lists/id/3" class="nav-link "> <span class="title">其他视频</span></a>  
+              		   </li>
+              		   			         <li class="nav-item ">
+              		<a href="/index.php/vod/lists/id/4" class="nav-link "> <span class="title">成人视频</span></a>  
+              		   </li>
+                   <li class="nav-item ">
+              		<a href="/index.php/vod/lists/id/28" class="nav-link "> <span class="title">动漫里番</span></a>  
+              		   </li>
+				</ul>
+				
+				
+				
+				</li>
+			</ul>
+			</li>
+ 
+			<li class="nav-item start active open" id="b0">
+			<a href="javascript:;" class="nav-link nav-toggle">
+			<i class="fa fa-user"></i>
+			<span class="title">会员中心</span>
+			<span class="selected"></span>
+			<span class="arrow open"></span>
+			</a>
+			<ul class="sub-menu">
+			
+				<li class="nav-item" id="b2">
+				<a href="javascript:;" class="nav-link nav-toggle">
+				<i class="fa fa-cog"></i>
+				<span class="title">个人设置</span>
+				<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu active" id="idall">
+					<li class="nav-item"  id="b3">
+					<a href="{:U('User/edit')}" class="nav-link">
+					<span class="title">账号设置</span>
+					</a>
+					</li>
+					<li class="nav-item" id="b4">
+					<a href="{:U('User/pass')}" class="nav-link ">
+					<span class="title">修改密码</span>
+					</a>
+					</li>
+				 	<li class="nav-item" id="b5">
+					<a href="{:U('User/log')}" class="nav-link ">
+					<span class="title">登录日志</span>
+					</a>
+					</li>
+					 
+				</ul>
+				</li>
+				 <li class="nav-item"  id="b6">
+				<a href="/index.php/vod/user/vod/help" class="nav-link">
+				<i class="fa fa-flag"></i>
+				<span class="title"> 使用说明</span>
+			 
+				</a>
+				</li>
+					<li class="heading">
+		 
+			</li>
+			</ul>
+			</li>
+			
+			
+			 
+<!--
+			<li class="heading">
+			<h3 class="uppercase">其他说明</h3>
+			</li>
+		 
+ 
+ <li class="nav-item start">
+				<a href="#" class="nav-link ">
+				<i class="icon-bar-chart"></i>
+				<span class="title">站长必看</span>
+				<span class="selected"></span>
+				</a>
+				</li>
+		 
+			<li class="nav-item ">
+			<a href="javascript:;" class="nav-link nav-toggle">
+			<i class="icon-feed"></i>
+			<span class="title">使用说明</span>
+			<span class="arrow"></span>
+			</a>
+			<ul class="sub-menu">
+				<li class="nav-item ">
+				<a href="javascript:;" class="nav-link ">
+				<span class="title">上传规则</span>
+				</a>
+				</li>
+				<li class="nav-item ">
+				<a href="javascript:;" class="nav-link ">
+				<span class="title">其他</span>
+				</a>
+				</li>
+			 
+			</ul>
+			</li>
+			<li class="nav-item ">
+			<a href="javascript:;" class="nav-link nav-toggle">
+			<i class=" icon-wrench"></i>
+			<span class="title">功能更新</span>
+			<span class="arrow"></span>
+			</a>
+			<ul class="sub-menu">
+				<li class="nav-item ">
+				<a href="javascript:;" class="nav-link ">
+				<span class="title">内测版本</span>
+				</a>
+				</li>
+			</ul>
+			</li>
+ 
+ -->
+		</ul>
+		<!-- END SIDEBAR MENU -->
+	</div>
+	<!-- END SIDEBAR -->
+</div> 
+ 
+            <!-- END SIDEBAR -->
+         
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                    <!-- BEGIN PAGE HEAD-->
+                
+               
+
+                    <!-- END PAGE HEAD-->
+                    <!-- BEGIN PAGE BREADCRUMB -->
+              
+                    <!-- END PAGE BREADCRUMB -->
+                    <!-- BEGIN PAGE BASE CONTENT -->
+                    
+                    
+                            <div class="row" >
+                            <div class="col-md-12">
+                                <!-- BEGIN VALIDATION STATES-->
+                                <div class="portlet light portlet-fit portlet-form bordered">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-question-circle fa-lg font-blue"></i>
+                                            <span class="caption-subject  font-blue sbold uppercase">使用说明 &nbsp;</span>
+ 
+                                              <span class="caption-helper"> （如有更多问题，请加入站长互助QQ群：636815536） </span>
+ 
+                                        </div>
+ 
+                                    </div>
+                                    <div class="portlet-body">
+                     <div class="faq-page faq-content-1">
+            
+                        <div class="faq-content-container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="faq-section">
+                                      
+                                        <div class="panel-group accordion faq-content" id="accordion1">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <i class="fa fa-circle"></i>
+                                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1"> 如何使用"我的分类"功能?</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse_1" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <p>"我的分类"分为一级分类和二级分类。一级分类为父栏目，二级分类为子栏目。</p>
+                                                        <p>在创建分类上级分类为空时默认创建父栏目，选择父栏目时创建的为子栏目。</p>
+                                                        <p>视频只能发布在子栏目内，点击子栏目链接可看到该子栏目下所有的视频。个人分类仅自己可见。</p>
+                                                        <p>该功能为方便站长对视频分类、检索，如上传"人民的名义"全集，可新建父栏目"国产电视剧"，再在此父栏目下新建子栏目"人民的名义全集"，上传所有视频时私人分类选项选择"国产电视剧"-"人民的名义全集"。</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <i class="fa fa-circle"></i>
+                                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2"> 如何正确使用视频、预览图API接口？</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse_2" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <p> 为防止CDN域名被墙，现全部改用API调用视频。当视频源地址被屏蔽时，官方后台更换域名即可，再无须站长批量替换数据库字段。</p>
+                                                        <p> 例：http://api2.my230.com/?vid=27pandDrclN2ZEgl4skz2 为一个视频的API接口。其中：http://api2.my230.com/?vid= 为固定接口，27pandDrclN2ZEgl4skz2为内容值（视频ID）。</p>
+                                                        <p> 	站长只需和以往一样在调用视频时填写视频API接口地址，该地址永不失效且不会被屏蔽。</p>
+                                                        <p> 预览图API接口同理，在网页代码src=""处填写接口地址即可。预览图总共为10张，默认调用第一张图片。</p>
+                                                        <p>	如想调用其他图片请在接口地址后加"&no=2",如调用某视频第二章预览图地址：http://api2.my230.com/apitu.php?vid=27pandDrclN2ZEgl4skz2&no=2。</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <i class="fa fa-circle"></i>
+                                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_3"> 上传类别分类与内容限制 </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse_3" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <p> 为方便管理员审核内容，上传视频时必须按照视频内容选择对应类别。短片、搞笑小视频等归为"其他视频"，伦理片一律归为"成人视频"。</p>
+                                                        <p> 上传的视频中不得带有明显广告水印，引诱文字水印，内置推广视频等。</p>
+                                                        <p> 视频内容必须遵循美国法律和联邦宪法，严禁上传涉及幼兽、恐暴、宗教、政治、反动等国际上禁止的内容。</p>
+                                                        <p> 违反者我们会第一时间永久封停该帐号，并配合IDC公司将涉事者相关资料递交给当地警局处理。</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                              
+                                        </div>
+                                    </div>
+                         
+                                </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+                                
+                                </div>
+                                <!-- END VALIDATION STATES-->
+                            </div>
+                        </div>
+   
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR -->
+  
+            <!-- END QUICK SIDEBAR -->
+        </div>
+         <div class="page-footer">
+            <div class="page-footer-inner"> <script>document.write(new Date().getFullYear());</script>
+ &copy; 版权所有
+                <a target="_blank" href="http://www.27pan.com">www.27PAN.com</a> &nbsp;|&nbsp;
+                 永久免费的CDN多媒体网盘
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div> 
+<!-- END CONTAINER -->
+         <!--[if lt IE 9]>
+<script src="http://www.27pan.com/assets/global/plugins/respond.min.js"></script>
+<script src="http://www.27pan.com/assets/global/plugins/excanvas.min.js"></script> 
+<script src="http://www.27pan.com/assets/global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="http://www.27pan.com/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="http://www.27pan.com/assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="http://www.27pan.com/assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="http://www.27pan.com/assets/pages/scripts/components-bootstrap-select.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="http://www.27pan.com/assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <script src="http://www.27pan.com/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+ 
+ 
+    
+ <script type="text/javascript">
+    $(document).ready(function() {
+    	$('#b6').addClass('active');
+    });
+</script>
+</body>
+</html> 
