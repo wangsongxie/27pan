@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 2018-05-20 14:40:51
--- 服务器版本： 5.7.15-log
--- PHP Version: 5.6.26
+-- Host: 127.0.0.1
+-- Generation Time: 2018-05-21 08:16:19
+-- 服务器版本： 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -160,19 +162,21 @@ INSERT INTO `qw_auth_rule` (`id`, `pid`, `name`, `title`, `icon`, `type`, `statu
 
 CREATE TABLE `qw_category` (
   `id` int(11) NOT NULL,
-  `type` tinyint(1) NOT NULL COMMENT '0正常，1单页，2外链',
   `pid` int(11) NOT NULL COMMENT '父ID',
   `name` varchar(100) NOT NULL COMMENT '分类名称',
-  `dir` varchar(100) NOT NULL COMMENT '目录名称',
-  `seotitle` varchar(200) DEFAULT NULL COMMENT 'SEO标题',
-  `keywords` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `url` varchar(255) NOT NULL,
-  `cattemplate` varchar(100) NOT NULL,
-  `contemplate` varchar(100) NOT NULL,
   `o` int(11) NOT NULL COMMENT '排序'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `qw_category`
+--
+
+INSERT INTO `qw_category` (`id`, `pid`, `name`, `o`) VALUES
+(36, 0, '电影', 1),
+(37, 0, '电视剧', 2),
+(38, 0, '其他视频', 3),
+(39, 0, '成人视频', 4),
+(40, 0, '动漫里番', 5);
 
 -- --------------------------------------------------------
 
@@ -247,7 +251,35 @@ INSERT INTO `qw_log` (`id`, `name`, `t`, `ip`, `log`) VALUES
 (2, 'admin', 1526697990, '::1', '修改网站配置。'),
 (3, 'admin', 1526698127, '::1', '删除菜单ID：Array'),
 (4, 'admin', 1526698139, '::1', '删除菜单ID：Array'),
-(5, 'admin', 1526782233, '::1', '登录成功。');
+(5, 'admin', 1526782233, '::1', '登录成功。'),
+(6, 'admin', 1526863549, '::1', '登录成功。'),
+(7, 'admin', 1526867657, '::1', '新增分类，ID：36，名称：电影'),
+(8, 'admin', 1526867667, '::1', '新增分类，ID：37，名称：电视剧'),
+(9, 'admin', 1526867679, '::1', '新增分类，ID：38，名称：其他视频'),
+(10, 'admin', 1526867710, '::1', '新增分类，ID：39，名称：成人视频'),
+(11, 'admin', 1526867716, '::1', '新增分类，ID：40，名称：动漫里番');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `qw_login`
+--
+
+CREATE TABLE `qw_login` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `ip` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `client` varchar(200) NOT NULL,
+  `logintime` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `qw_login`
+--
+
+INSERT INTO `qw_login` (`id`, `ip`, `address`, `client`, `logintime`, `username`) VALUES
+(1, '0.0.0.0', '-2', 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36', 1526866035, '张三');
 
 -- --------------------------------------------------------
 
@@ -409,6 +441,13 @@ ALTER TABLE `qw_log`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `qw_login`
+--
+ALTER TABLE `qw_login`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`);
+
+--
 -- Indexes for table `qw_member`
 --
 ALTER TABLE `qw_member`
@@ -442,56 +481,74 @@ ALTER TABLE `qw_user`
 --
 ALTER TABLE `qw_article`
   MODIFY `aid` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- 使用表AUTO_INCREMENT `qw_auth_group`
 --
 ALTER TABLE `qw_auth_group`
   MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- 使用表AUTO_INCREMENT `qw_auth_rule`
 --
 ALTER TABLE `qw_auth_rule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+
 --
 -- 使用表AUTO_INCREMENT `qw_category`
 --
 ALTER TABLE `qw_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
 --
 -- 使用表AUTO_INCREMENT `qw_devlog`
 --
 ALTER TABLE `qw_devlog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- 使用表AUTO_INCREMENT `qw_flash`
 --
 ALTER TABLE `qw_flash`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- 使用表AUTO_INCREMENT `qw_links`
 --
 ALTER TABLE `qw_links`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- 使用表AUTO_INCREMENT `qw_log`
 --
 ALTER TABLE `qw_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- 使用表AUTO_INCREMENT `qw_login`
+--
+ALTER TABLE `qw_login`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用表AUTO_INCREMENT `qw_member`
 --
 ALTER TABLE `qw_member`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用表AUTO_INCREMENT `qw_ucat`
 --
 ALTER TABLE `qw_ucat`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- 使用表AUTO_INCREMENT `qw_user`
 --
 ALTER TABLE `qw_user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -59,4 +59,9 @@ class VodController extends ComController
 		$this->username = $_SESSION['name'];
 		$this->display();
 	}
+
+	public function lists($id){
+		
+		$this->display();
+	}
 }

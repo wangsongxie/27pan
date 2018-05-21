@@ -89,17 +89,8 @@ class CategoryController extends ComController
         }
 
         $id = I('post.id', false, 'intval');
-        $data['type'] = I('post.type', 0, 'intval');
         $data['pid'] = I('post.pid', 0, 'intval');
         $data['name'] = I('post.name');
-        $data['dir'] = I('post.dir','',array('strip_tags','trim'));
-        $data['seotitle'] = I('post.seotitle', '', 'htmlspecialchars');
-        $data['keywords'] = I('post.keywords', '', 'htmlspecialchars');
-        $data['description'] = I('post.description', '', 'htmlspecialchars');
-        $data['content'] = I('post.content');
-        $data['url'] = I('post.url');
-        $data['cattemplate'] = I('post.cattemplate');
-        $data['contemplate'] = I('post.contemplate');
         $data['o'] = I('post.o', 0, 'intval');
         if ($data['name'] == '') {
             $this->error('分类名称不能为空！');

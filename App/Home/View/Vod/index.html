@@ -180,58 +180,7 @@ vertical-align: middle!important;
             </div>
             <!-- END HEADER INNER -->
         </div>
-        
-        
-        
-        		 
- <!--
-    <div class="header">
-        <div class="w960">
-            <a class="logo" href="http://www.27pan.com/" title="27盘 - 永久免费的CDN多媒体网盘 - 27pan.com"></a>
-            <ul class="layui-nav" lay-filter="">
-                <li class="layui-nav-item layui-this"><a href="http://www.27pan.com/">首页</a></li>
-                
-                <li class="layui-nav-item">
-                    <a href="http://www.27pan.com/index.php/vod">视频</a>
-                </li>
-                
-                <li class="layui-nav-item"><a href="http://www.27pan.com/index.php/user">会员</a></li>
-                <li class="layui-nav-item" id="plulist">
-                    <a href="javascript:;">更多</a>
-                    <dl class="layui-nav-child">
-                    
-                        <dd style="display: none;"><a href="http://www.27pan.com/index.php/vod">视频</a></dd>
-                    
-                    </dl>
-                </li>
-            </ul>
-            <div class="user">
-                <div class="login" id="userLogin">
-                    <div id='cscms_login'  class='top-menu'></div>
-		        <script type='text/javascript'>
-		            var cscms_loginlink = 'http://www.27pan.com/index.php/api/ulog/log/user';
-		            var cscms_loginaddlink = 'http://www.27pan.com/index.php/api/ulog/login';
-		            var cscms_logoutlink = 'http://www.27pan.com/index.php/api/ulog/logout';
-		            cscms.login();
-		        </script>
-                </div>
-                <a class="word2"><span class="sokey"><i class="fa fa-search"></i></span>
-                    <form action="http://www.27pan.com/index.php/dance/search" class="search" class="layui-form">
-                    <input type="text" name="key" id="key" class="layui-input" placeholder="请输入歌曲名" value="">
-                    <button title="搜索" class="layui-btn layui-btn-small search-btn" lay-submit lay-filter="search"><i class="fa fa-search"></i></button>
-                    </input>
-                </form>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div id="loginmask" style=""></div>
-    <script type="text/javascript">
-        var plulen = $('#plulist').children('dl').children('dd').length;
-        if(plulen<6) $('#plulist').hide();
-    </script>
-    
-    --> 
+
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -303,19 +252,19 @@ vertical-align: middle!important;
 				<ul class="sub-menu" id="vodlist">
 						 
 									 <li class="nav-item ">
-              		 <a href="/index.php/vod/lists/id/1" class="nav-link "> <span class="title">电影</span></a>  
+              		 <a href="{:U('Vod/lists',array('id'=>1))}" class="nav-link "> <span class="title">电影</span></a>  
               		   </li>
 			            <li class="nav-item ">
-              		<a href="/index.php/vod/lists/id/2" class="nav-link "> <span class="title">电视剧</span></a>  
+              		<a href="{:U('Vod/lists',array('id'=>2))}" class="nav-link "> <span class="title">电视剧</span></a>  
               		   </li>
               	  <li class="nav-item ">
-              		<a href="/index.php/vod/lists/id/3" class="nav-link "> <span class="title">其他视频</span></a>  
+              		<a href="{:U('Vod/lists',array('id'=>3))}" class="nav-link "> <span class="title">其他视频</span></a>  
               		   </li>
               		   			         <li class="nav-item ">
-              		<a href="/index.php/vod/lists/id/4" class="nav-link "> <span class="title">成人视频</span></a>  
+              		<a href="{:U('Vod/lists',array('id'=>4))}" class="nav-link "> <span class="title">成人视频</span></a>  
               		   </li>
                    <li class="nav-item ">
-              		<a href="/index.php/vod/lists/id/28" class="nav-link "> <span class="title">动漫里番</span></a>  
+              		<a href="{:U('Vod/lists',array('id'=>5))}" class="nav-link "> <span class="title">动漫里番</span></a>  
               		   </li>
 				</ul>
 				

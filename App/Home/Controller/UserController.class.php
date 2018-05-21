@@ -25,6 +25,15 @@ class UserController extends Controller
 	        	$user = M('user')->where($data)->find();
 	        	if($user){
 	        		session('name',$data['username']);
+	        		$address = file_get_contents("http://int.dpool.sina.com.cn/iplookup/iplookup.php?ip=".get_client_ip());
+	        		$datas = array(
+	        			'ip' => get_client_ip(),
+	        			'client' => $_SERVER['HTTP_USER_AGENT'],
+	        			'address' => $address,
+	        			'logintime' => time(),
+	        			'username' => $data['username'],
+	        		);
+	        		M('login')->data($datas)->add();
 	        		$this->success('登录成功',U('Vod/index'));
 	        	}else{
 	        		$this->error('不存在此用户,请重新登录');
@@ -96,8 +105,25 @@ class UserController extends Controller
 		$this->display();
 	}
 
-	public function log(){
+	public function log($sid = 0, $p = 1){
 		$this->username = $_SESSION['name'];
+		$p = intval($p) > 0 ? $p : 1;
+		$prefix = C('DB_PREFIX');
+		$article = M('login');
+        $pagesize = 20;#每页数量
+        $offset = $pagesize * ($p - 1);//计算记录偏移量
+        $keyword = isset($_GET['username']) ? htmlentities($_GET['username']) : '';
+        $where = '1 = 1 ';
+        if ($keyword) {
+            $where .= "and {$prefix}login.username like '%{$keyword}%' ";
+        }
+        $count = $article->where($where)->count();
+        $list = $article->field("{$prefix}login.*")->where($where)->order($orderby)->limit($offset . ',' . $pagesize)->select();
+
+        $page = new \Think\Page($count, $pagesize);
+        $page = $page->show();
+        $this->assign('list', $list);
+        $this->assign('page', $page);
 		$this->display();
 	}
 
