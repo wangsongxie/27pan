@@ -64,6 +64,7 @@ class VodController extends ComController
 
 	public function fav(){
 		$this->username = $_SESSION['name'];
+
 		$this->display();
 	}
 
@@ -88,6 +89,7 @@ class VodController extends ComController
 			'cid' => $_POST['cid'],
 			'title' => $_POST['title'],
 			'titlepic' => $_POST['titlepic'],
+			'mid' => $_POST['mid'],
 			'odownpath1' => $_POST['odownpath1'],
 			'share' => $_POST['share'],
 			'videoid' => $_POST['videoid'],
