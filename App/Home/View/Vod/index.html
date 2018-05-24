@@ -44,6 +44,7 @@
     <link href="http://www.27pan.com/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
     <link href="http://www.27pan.com/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
     <script type='text/javascript' src='http://www.27pan.com/tpl/pc/user/default/js/user.js'></script>
+	
  <style>
 .table th, .table td { 
 text-align: center;
@@ -95,13 +96,14 @@ vertical-align: middle!important;
                                     <i class="fa fa-download"></i> 下载客户端 </a>
                             </li>
                             <li>
-                                <a href="/index.php/vod/user/uclass/edit/">
+                                <a href="{:U('Vod/eclass')}">
                                     <i class="fa fa-plus"></i> 添加分类 </a>
                             </li>
+							
                             
                             <li class="divider"> </li>
                             <li>
-                                <a href="/index.php/vod/user/vod">
+                                <a href="{:U('Vod/index')}">
                                     <i class="fa fa-folder-open"></i> 我的视频
                                     <span class="badge badge-success">0</span>
                                 </a>
@@ -216,21 +218,21 @@ vertical-align: middle!important;
 				</li>
         
         <li class="nav-item" id="a2">
-				<a href="/index.php/vod/user/uclass/edit/"  class="nav-link ">
+				<a href="{:U('Vod/eclass')}"  class="nav-link ">
 				<i class="fa fa-plus"></i>
 				<span class="title">添加分类</span>
 				</a>
 				</li>
 					
 					<li class="nav-item" id="a3">
-				<a href="/index.php/vod/user/vod" class="nav-link ">
+				<a href="{:U('Vod/index')}" class="nav-link ">
 				<span class="title">我的视频</span>
 				<span class="badge badge-success">0</span>
 				</a>
 				</li>
 				
 					<li class="nav-item " id="a4">
-				<a href="/index.php/vod/user/uclass" class="nav-link ">
+				<a href="{:U('Vod/uclass')}" class="nav-link ">
 				<span class="title">我的分类</span>
 		    <span class="badge badge-success"> 0  </span>
 				</a>
@@ -336,57 +338,7 @@ vertical-align: middle!important;
 			</li>
 			
 			
-			 
-<!--
-			<li class="heading">
-			<h3 class="uppercase">其他说明</h3>
-			</li>
-		 
- 
- <li class="nav-item start">
-				<a href="#" class="nav-link ">
-				<i class="icon-bar-chart"></i>
-				<span class="title">站长必看</span>
-				<span class="selected"></span>
-				</a>
-				</li>
-		 
-			<li class="nav-item ">
-			<a href="javascript:;" class="nav-link nav-toggle">
-			<i class="icon-feed"></i>
-			<span class="title">使用说明</span>
-			<span class="arrow"></span>
-			</a>
-			<ul class="sub-menu">
-				<li class="nav-item ">
-				<a href="javascript:;" class="nav-link ">
-				<span class="title">上传规则</span>
-				</a>
-				</li>
-				<li class="nav-item ">
-				<a href="javascript:;" class="nav-link ">
-				<span class="title">其他</span>
-				</a>
-				</li>
-			 
-			</ul>
-			</li>
-			<li class="nav-item ">
-			<a href="javascript:;" class="nav-link nav-toggle">
-			<i class=" icon-wrench"></i>
-			<span class="title">功能更新</span>
-			<span class="arrow"></span>
-			</a>
-			<ul class="sub-menu">
-				<li class="nav-item ">
-				<a href="javascript:;" class="nav-link ">
-				<span class="title">内测版本</span>
-				</a>
-				</li>
-			</ul>
-			</li>
- 
- -->
+
 		</ul>
 		<!-- END SIDEBAR MENU -->
 	</div>
@@ -414,7 +366,7 @@ vertical-align: middle!important;
                                             <span class="caption-subject font-red sbold uppercase">我的视频 &nbsp;</span>
  
                                               <span class="caption-helper"> （你总共上传了 0 部视频） </span>
- 
+											<a href="{:U('Vod/up')}">上传视频</a>
                                         </div>
                                         <div class="actions">
                                         	

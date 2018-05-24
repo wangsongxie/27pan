@@ -181,7 +181,27 @@ function articleUrl($data)
 
 }
 
-
+/**
+ * [tmspan description]
+ * @param  [type]  $timestamp    [description]
+ * @param  integer $current_time [description]
+ * @return [type]                [description]
+ */
+function tmspan($timestamp,$current_time=0){
+        if(!$current_time) $current_time=time();
+        $span=$current_time-$timestamp;
+        if($span<60){
+            return "刚刚";
+        }else if($span<3600){
+            return intval($span/60)."分钟前";
+        }else if($span<24*3600){
+            return intval($span/3600)."小时前";
+        }else if($span<(7*24*3600)){
+            return intval($span/(24*3600))."天前";
+        }else{
+            return date('Y-m-d',$timestamp);
+        }
+    }
 
 
 

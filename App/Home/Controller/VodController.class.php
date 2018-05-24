@@ -3,6 +3,8 @@ namespace Home\Controller;
 
 use Vendor\Page;
 
+use Vendor\Tree;
+
 class VodController extends ComController
 {
 	public function index(){
@@ -60,8 +62,66 @@ class VodController extends ComController
 		$this->display();
 	}
 
-	public function lists($id){
-		
+	public function fav(){
+		$this->username = $_SESSION['name'];
 		$this->display();
 	}
+
+	public function up(){
+
+		$category = M('category')->field('id,pid,name')->order('o asc')->select();
+        $tree = new Tree($category);
+        $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
+        $category = $tree->get_tree(0, $str, 0);
+        $this->assign('category', $category);//导航
+        //我的分类
+        $cate = M('ucat')->field('id,pid,ucat')->where(array('uid'=>$_SESSION['id']))->select();
+        $tree = new Tree($cate);
+        $str = "<option value=\$id \$selected>\$spacer\$ucat</option>"; //生成的形式
+        $cate = $tree->get_tree(0, $str, 0);
+        $this->assign('mycat', $cate);//导航
+		$this->display();
+	}
+
+	public function upd(){
+		$data = array(
+			'cid' => $_POST['cid'],
+			'title' => $_POST['title'],
+			'titlepic' => $_POST['titlepic'],
+			'odownpath1' => $_POST['odownpath1'],
+			'share' => $_POST['share'],
+			'videoid' => $_POST['videoid'],
+			'uid' => $_SESSION['id'],
+			'addtime' => time(),
+		);
+		if(M('vod')->data($data)->add()){
+			$this->success('提交成功');
+		}else{
+			$this->error('提交失败');
+		}
+	}
+
+	public function lists($id = 0, $p = 1){
+		
+		$this->username = $_SESSION['name'];
+		$p = intval($p) > 0 ? $p : 1;
+		$prefix = C('DB_PREFIX');
+		$article = M('vod');
+        $pagesize = 20;#每页数量
+        $offset = $pagesize * ($p - 1);//计算记录偏移量
+        $keyword = isset($_GET['username']) ? htmlentities($_GET['username']) : '';
+        $where['cid'] = $_GET['id'];
+
+        $count = $article->where($where)->count();
+        $list = $article->where($where)->order($orderby)->limit($offset . ',' . $pagesize)->select();
+        
+        $page = new \Think\Page($count, $pagesize);
+        $page = $page->show();
+        $this->num = $count;
+        $this->assign('list', $list);
+        $this->assign('page', $page);
+		$this->display();
+	}
+
+	
 }

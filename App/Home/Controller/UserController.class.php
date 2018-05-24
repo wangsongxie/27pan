@@ -25,6 +25,7 @@ class UserController extends Controller
 	        	$user = M('user')->where($data)->find();
 	        	if($user){
 	        		session('name',$data['username']);
+	        		session('id',$user['id']);
 	        		$address = file_get_contents("http://int.dpool.sina.com.cn/iplookup/iplookup.php?ip=".get_client_ip());
 	        		$datas = array(
 	        			'ip' => get_client_ip(),

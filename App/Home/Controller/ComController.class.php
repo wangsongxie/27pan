@@ -22,7 +22,7 @@ class ComController extends Controller
         	);
         $user = M('user')->where($data)->find();
         if(!$user){
-        	$this->success('请登录',U('User/login'));
+        	$this->success('',U('User/login'));
         	exit(0);
         	//$this->redirect(U('User/login'));
         }
