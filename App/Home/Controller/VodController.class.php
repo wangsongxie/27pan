@@ -101,6 +101,31 @@ class VodController extends ComController
 		}
 	}
 
+	public function vodFav(){
+		$where['id'] = $_GET['id'];
+
+		$vod = M('vod')->where($where)->find();
+
+		$arr = explode(',',$vod['fid']);
+		if(in_array($_SESSION['id'],$arr)){
+			$this->ajaxReturn(array('msg'=>'您已经收藏过了!'));
+		}
+		$map = array(
+			'fid' => $vod['fid'].$_SESSION['id'].',',
+		);
+		M('vod')->where($where)->save($map);
+		$data = array(
+			'cid' => $vod['cid'],
+			'uid' => $_SESSION['id'],
+			'vid' => $where['id']
+		);
+		if(M('fav')->data($data)->add()){
+			$this->ajaxReturn(array('msg'=>'ok'));
+		}else{
+			$this->ajaxReturn(array('msg'=>'error'));
+		}
+	}
+
 	public function lists($id = 0, $p = 1){
 		
 		$this->username = $_SESSION['name'];
