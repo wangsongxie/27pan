@@ -1,4 +1,5 @@
 
+ 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -10,7 +11,7 @@
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <title>修改密码 - 会员中心</title>
+      <title>我的视频 - 会员中心</title>
 <script type='text/javascript'>var cscms_path='http://www.27pan.com/';</script>
 <link rel='stylesheet' href='http://www.27pan.com/packs/layui/css/layui.css'>
 <script type='text/javascript' src='http://www.27pan.com/packs/layui/layui.js'></script>
@@ -19,9 +20,8 @@
     <meta name="Keywords" content="27盘,视频cdn,视频网盘,免费视频网盘" />
     <meta name="Description" content="27盘致力打造全国最大的永久免费CDN多媒体加速方案！
 " />
-    <script type='text/javascript' src='http://www.27pan.com/tpl/pc/user/default/js/user.js'></script>
             <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="http://www.27pan.com/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="http://www.27pan.com/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="http://www.27pan.com/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
@@ -42,63 +42,46 @@
         <link href="http://www.27pan.com/assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES --> 
          <link href="http://www.27pan.com/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" /> 
- <link rel="stylesheet" type="text/css" href="http://www.27pan.com/upload/css/upload.css" />
+     <link href="http://www.27pan.com/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+    <link href="http://www.27pan.com/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+   
+<style>
+ 
+	.mt-element-card .mt-card-item .mt-card-content .mt-card-social ul li a{font-size:14px;color:#678098;} 
+	.video-time {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 38px;
+    line-height: 41px;
+    overflow: hidden;
+    width: 100%;
+    padding: 0 5%;
+    color: #fff;
+    font-size: 13px;
+    background: url(http://www.27pan.com/assets/pages/img/avatars/shadow4.png) repeat-x 0 1px;
+    z-index: 10;
+}
+	.mt-element-card .mt-card-item .mt-card-content .mt-card-social ul li a:hover{color: #5b9bd1;text-decoration: none;}
+	 .modal-body img{
+		float:left;
+		display:block;
+		width:180px;
+		height:100px;
+		margin: 3px;
+		}
+	.clear{clear:both}
+  .oneline{overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 95%;}
+	</style>
 </head>
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
-            <include file="Public/header"/>
+            <include file="Public/header" />
         
-        
-        
-        		 
- <!--
-    <div class="header">
-        <div class="w960">
-            <a class="logo" href="http://www.27pan.com/" title="27盘 - 永久免费的CDN多媒体网盘 - 27pan.com"></a>
-            <ul class="layui-nav" lay-filter="">
-                <li class="layui-nav-item layui-this"><a href="http://www.27pan.com/">首页</a></li>
-                
-                <li class="layui-nav-item">
-                    <a href="http://www.27pan.com/index.php/vod">视频</a>
-                </li>
-                
-                <li class="layui-nav-item"><a href="http://www.27pan.com/index.php/user">会员</a></li>
-                <li class="layui-nav-item" id="plulist">
-                    <a href="javascript:;">更多</a>
-                    <dl class="layui-nav-child">
-                    
-                        <dd style="display: none;"><a href="http://www.27pan.com/index.php/vod">视频</a></dd>
-                    
-                    </dl>
-                </li>
-            </ul>
-            <div class="user">
-                <div class="login" id="userLogin">
-                    <div id='cscms_login'  class='top-menu'></div>
-		        <script type='text/javascript'>
-		            var cscms_loginlink = 'http://www.27pan.com/index.php/api/ulog/log/user';
-		            var cscms_loginaddlink = 'http://www.27pan.com/index.php/api/ulog/login';
-		            var cscms_logoutlink = 'http://www.27pan.com/index.php/api/ulog/logout';
-		            cscms.login();
-		        </script>
-                </div>
-                <a class="word2"><span class="sokey"><i class="fa fa-search"></i></span>
-                    <form action="http://www.27pan.com/index.php/dance/search" class="search" class="layui-form">
-                    <input type="text" name="key" id="key" class="layui-input" placeholder="请输入歌曲名" value="">
-                    <button title="搜索" class="layui-btn layui-btn-small search-btn" lay-submit lay-filter="search"><i class="fa fa-search"></i></button>
-                    </input>
-                </form>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div id="loginmask" style=""></div>
-    <script type="text/javascript">
-        var plulen = $('#plulist').children('dl').children('dd').length;
-        if(plulen<6) $('#plulist').hide();
-    </script>
-    
-    --> 
+
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -110,7 +93,7 @@
 	<!-- BEGIN SIDEBAR -->
 	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 	<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-	<include file="Public/left"/>
+	<include file="Public/left" />
 	<!-- END SIDEBAR -->
 </div> 
  
@@ -119,120 +102,124 @@
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
-                <div class="page-content">
-                    <!-- BEGIN PAGE HEAD-->
-                
-               
-
-                    <!-- END PAGE HEAD-->
-                    <!-- BEGIN PAGE BREADCRUMB -->
-              
-                    <!-- END PAGE BREADCRUMB -->
-                    <!-- BEGIN PAGE BASE CONTENT -->
+<div class="page-content">
                     
                     
-                            <div class="row" >
-                            <div class="col-md-12">
-                                <!-- BEGIN VALIDATION STATES-->
-                                <div class="portlet light portlet-fit portlet-form bordered">
-                                    <div class="portlet-title">
+ <div class="row">
+                        <div class="col-md-12">
+                            <div class="portlet light bordered">
+                                                    <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fa fa-upload fa-lg font-red"></i>
-                                            <span class="caption-subject font-red sbold uppercase">上传视频 &nbsp;</span>
+                                            <span class="caption-subject font-red sbold uppercase">我的视频 &nbsp;</span>
  
-                                              <span class="caption-helper"> （你总共上传了  0 部视频） </span>
+                                              <span class="caption-helper"> （你总共上传了  16 部视频） </span>
  
                                         </div>
                                         <div class="actions">
                                         	
-                                  <div class="btn-group">
-                                            <a class="btn red btn-outline  btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false"> 快捷操作
+                               <div class="btn-group">
+                                            <a class="btn red btn-outline  btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false"> 浏览模式
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a href="javascript:;" class="mt-clipboard" data-clipboard-action="copy" data-clipboard-target="#title">复制视频名称</a>
+                                                  <a href="/index.php/vod/user/vod" >详情模式</a>
                                                 </li>
                                                 <li class="divider"> </li>
                                                 <li>
-                                                    <a href="javascript:;" class="mt-clipboard" data-clipboard-action="copy" data-clipboard-target="#panvideoid">复制视频ID</a>
+                                                    <a href="javascript:;" > <i class="fa fa-check"></i> 图文模式</a>
                                                 </li>
-                                                <li>
-                                                    <a href="javascript:;" class="mt-clipboard" data-clipboard-action="copy" data-clipboard-target="#panshare">复制分享地址</a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;" class="mt-clipboard" data-clipboard-action="copy" data-clipboard-target="#pantitlepic">复制预览图地址</a>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                                                     
                                                                     
                                         </div>
                                     </div>
-                                    <div class="portlet-body">
-                                        <!-- BEGIN FORM-->
+                                    
+                                 <div class="portlet-body">
+                                   <div class="tabbable-line">
+                           <ul class="nav nav-tabs">
+                                      <li class="active"><a href="http://www.27pan.com/index.php/vod/user/vod/pic">全部视频</a></li>
+	                                
+								               	<li><a href="http://www.27pan.com/index.php/vod/user/vod/pic/1">电影</a></li>
+	                                
+								               	<li><a href="http://www.27pan.com/index.php/vod/user/vod/pic/2">电视剧</a></li>
+	                                
+								               	<li><a href="http://www.27pan.com/index.php/vod/user/vod/pic/3">其他视频</a></li>
+	                                
+								               	<li><a href="http://www.27pan.com/index.php/vod/user/vod/pic/4">成人视频</a></li>
+	                                
+								               	<li><a href="http://www.27pan.com/index.php/vod/user/vod/pic/28">动漫里番</a></li>
+	                                
+	                                  </ul>
+                               <div class="tab-content">
+                                  <div class="portlet-body dataTables_wrapper  ">
+                                    <div class="mt-element-card mt-element-overlay">
+                           	<div class="note note-success">
+                        <h4>暂无视频数据！</h4>
+                        
+                    </div>
+                 
                                       
-                  
-                                            <div class="form-body">
-  
-<form class="form-horizontal" method="post" action="{:U('User/pass')}">
-<div class="form-group">
-<label class="control-label col-md-3">原密码
-<span class="required">  </span>
-</label>
-<div class="col-md-6">
-<input type="password" name="userpass" required lay-verify="required" placeholder="请输入原密码" autocomplete="off"  class="form-control"  value="">
-</div>
-</div>
+                                      
+                                     
+                                 
+                                     
+                                        </div>
+                                        
+                                     <div class="row">
+                      
+                                       <div class="col-md-offset-4 col-md-8">
+    	
+    	
+                                        <ul class="pagination"  style="float:right">
+                                            <li>
+                                                <a href="http://www.27pan.com/index.php/vod/user/vod/pic/0/1">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.27pan.com/index.php/vod/user/vod/pic/0/1" title="首页">首页</a>
+                                            </li>
 
-<div class="form-group">
-<label class="control-label col-md-3">新密码
-<span class="required">  </span>
-</label>
-<div class="col-md-6">
-<input type="password" name="userpass1" required lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="form-control">
-</div>
-</div>
-
-<div class="form-group">
-<label class="control-label col-md-3">确认密码
-<span class="required">  </span>
-</label>
-<div class="col-md-6">
-<input type="password" name="userpass2" required lay-verify="required" placeholder="请确认新密码" autocomplete="off" class="form-control" value="">
-</div>
-</div>
-
-
-   <input type="hidden" name="token" value="PqSLCO83wy"/>
-
- <div class="form-actions">
-  <div class="row">
-                                                    <div class="col-md-offset-3 col-md-9">
-                                                        <button type="submit" lay-submit lay-filter=""  class="btn btn-lg green"><i class="fa fa-check"></i> 修改 </button>
-                                                        <button type="reset" class="btn btn-lg grey-salsa btn-outline" ><i class="fa fa-refresh"></i> 重置</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                             </form>                                   
+                                           <li> <li class='active'><a href='http://www.27pan.com/index.php/vod/user/vod/pic/0/1'>1</a></li></li>
+                                            <li>
+                                                <a href="http://www.27pan.com/index.php/vod/user/vod/pic/0/1" >
+                                                    <i class="fa fa-angle-right"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
+                                    
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                               
+                                    </div>
+                                    
+                                </div>      	
+                                            
+                                            </div>
+                     
+                     
 
-                                      
-                                        <!-- END FORM-->
-                                        
-                                        
-                                        
-                                
+                                    </div>
+                                    
                                 </div>
-                                <!-- END VALIDATION STATES-->
+                                    
+               
+                                
+                                
+                                
+                                
                             </div>
                         </div>
-           
-                    
-                    
-
-                <!-- END CONTENT BODY -->
-            </div>
+                    </div>
+                </div>
             <!-- END CONTENT -->
             <!-- BEGIN QUICK SIDEBAR -->
   
@@ -249,7 +236,7 @@
             </div>
         </div> 
 <!-- END CONTAINER -->
-                <!--[if lt IE 9]>
+         <!--[if lt IE 9]>
 <script src="/assets/global/plugins/respond.min.js"></script>
 <script src="/assets/global/plugins/excanvas.min.js"></script> 
 <script src="/assets/global/plugins/ie8.fix.min.js"></script> 
@@ -280,16 +267,40 @@
  
  
     
-   <script type="text/javascript">
-    $(document).ready(function() {
-    	$('#b4').addClass('active');
-    	   
-    });
-        $(document).ready(function() {
-    	$('#b2').addClass('open');
-    	   $("#idall").css('display','block'); 
-    });
+<script src="/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/clipboardjs/clipboard.min.js" type="text/javascript"></script>
+<script src="/assets/pages/scripts/components-clipboard.min.js" type="text/javascript"></script>
+<script src="/assets/js/jquery.lazyload.js" type="text/javascript"></script>
+<script src="/assets/js/time.js" type="text/javascript"></script>
+<script>
+ $(function() {
+	prepareDynamicDates();
+	$(".timeago").timeago();
+});
+var zeropad = function(num) {
+		return ((num < 10) ? '0' : '') + num;
+	};
+var iso8601 = function(date) {
+		return date.getUTCFullYear() + "-" + zeropad(date.getUTCMonth() + 1) + "-" + zeropad(date.getUTCDate()) + "T" + zeropad(date.getUTCHours()) + ":" + zeropad(date.getUTCMinutes()) + ":" + zeropad(date.getUTCSeconds()) + "Z";
+	};
 
+function prepareDynamicDates() {
+	$('abbr.loaded').attr("title", iso8601(new Date()));
+}
+ 	
+</script>
+<script type="text/javascript" charset="utf-8">
+$(window).ready(function() {
+    $("img.lazy").lazyload({
+      placeholder : "/assets/img/1.gif"
+    });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    	$('#a3').addClass('active');
+    });
 </script>
 </body>
 </html> 

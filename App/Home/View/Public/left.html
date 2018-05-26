@@ -1,0 +1,129 @@
+<div class="page-sidebar navbar-collapse collapse">
+		<!-- BEGIN SIDEBAR MENU -->
+		<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+		<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+		<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<ul class="page-sidebar-menu" data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200">
+					<li class="nav-item start active open" id="a0">
+			<a href="javascript:;" class="nav-link nav-toggle">
+			<i class="fa fa-file-video-o"></i>
+			<span class="title">视频网盘</span>
+			<span class="arrow"></span>
+			</a>
+			<ul class="sub-menu">
+				
+        
+        <li class="nav-item" id="a1">
+				<a href="{:U('Vod/eclass')}"  class="nav-link ">
+				<i class="fa fa-plus"></i>
+				<span class="title">添加分类</span>
+				</a>
+				</li>
+					
+					<li class="nav-item" id="a2">
+				<a href="{:U('Vod/index')}" class="nav-link ">
+				<span class="title">我的视频</span>
+				 
+				</a>
+				</li>
+				
+					<li class="nav-item " id="a3">
+				<a href="{:U('Vod/uclass')}" class="nav-link ">
+				<span class="title">我的分类</span>
+		   
+				</a>
+				</li>
+					<li class="nav-item " id="a4">
+				<a href="{:U('Vod/fav')}" class="nav-link ">
+				<span class="title">我的收藏</span>
+		 
+				</a>
+				</li>
+			  <li class="nav-item" id="vall">
+				<a href="javascript:;" class="nav-link nav-toggle"  >
+				<i class="fa fa-folder-open"></i>
+				<span class="title">视频广场</span>
+				
+				<span class="arrow"></span>
+				
+				</a>
+				<ul class="sub-menu" id="vodlist">
+						 
+		 
+	
+	 
+                          <li  >  <a  href="{:U('Vod/lists',array('id'=>36))}"><span class="title">电影</span></a></li>
+                        
+                          <li >  <a  href="{:U('Vod/lists',array('id'=>37))}"><span class="title">电视剧</span></a></li>
+                        
+                          <li >  <a  href="{:U('Vod/lists',array('id'=>38))}"><span class="title">其他视频</span></a></li>
+                        
+                          <li >  <a  href="{:U('Vod/lists',array('id'=>39))}"><span class="title">成人视频</span></a></li>
+                        
+                          <li >  <a  href="{:U('Vod/lists',array('id'=>40))}"><span class="title">动漫里番</span></a></li>
+                        
+	
+				</ul>
+				
+				
+				
+				</li>
+			</ul>
+			</li>
+ 
+			<li class="nav-item start active open" id="b0">
+			<a href="javascript:;" class="nav-link nav-toggle">
+			<i class="fa fa-user"></i>
+			<span class="title">会员中心</span>
+			<span class="selected"></span>
+			<span class="arrow open"></span>
+			</a>
+			<ul class="sub-menu">
+			
+			
+				<li class="nav-item" id="b2">
+				<a href="javascript:;" class="nav-link nav-toggle">
+				<i class="fa fa-cog"></i>
+				<span class="title">个人设置</span>
+				<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu active" id="idall">
+					<li class="nav-item"  id="b3">
+					<a href="{:U('user/edit')}" class="nav-link">
+					<span class="title">账号设置</span>
+					</a>
+					</li>
+					<li class="nav-item" id="b4">
+					<a href="{:U('user/pass')}" class="nav-link ">
+					<span class="title">修改密码</span>
+					</a>
+					</li>
+				 	<li class="nav-item" id="b5">
+					<a href="{:U('user/log')}" class="nav-link ">
+					<span class="title">登录日志</span>
+					</a>
+					</li>
+					 
+				</ul>
+				</li>
+							 <li class="nav-item"  id="b6">
+				<a href="{:U('Vod/help')}" class="nav-link">
+				<i class="fa fa-flag"></i>
+				<span class="title" > 使用说明</span>
+			 
+				</a>
+				</li>
+					<li class="heading">
+		 
+			</li>
+			</ul>
+			</li>
+				
+ 
+
+		</ul>
+		<!-- END SIDEBAR MENU -->
+	</div>

@@ -10,15 +10,14 @@
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-     <title>我的视频 - 会员中心</title>
+     <title>搜索页</title>
 <script type='text/javascript'>var cscms_path='http://www.27pan.com/';</script>
 <link rel='stylesheet' href='http://www.27pan.com/packs/layui/css/layui.css'>
 <script type='text/javascript' src='http://www.27pan.com/packs/layui/layui.js'></script>
 <script type='text/javascript' src='http://www.27pan.com/packs/js/jquery.min.js'></script>
 <script type='text/javascript' src='http://www.27pan.com/packs/js/cscms.js'></script>
-    <meta name="Keywords" content="27盘,视频cdn,视频网盘,免费视频网盘" />
-    <meta name="Description" content="27盘致力打造全国最大的永久免费CDN多媒体加速方案！
-" />
+    <meta name="Keywords" content="电影" />
+    <meta name="Description" content="视频" />
             <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="http://www.27pan.com/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
@@ -40,12 +39,12 @@
         <link href="http://www.27pan.com/assets/layouts/layout4/css/themes/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
         <link href="http://www.27pan.com/assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES --> 
+ 
+ 
          <link href="http://www.27pan.com/assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" /> 
     <link href="http://www.27pan.com/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
     <link href="http://www.27pan.com/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
-    <script type='text/javascript' src='http://www.27pan.com/tpl/pc/user/default/js/user.js'></script>
-	
- <style>
+     <style>
 .table th, .table td { 
 text-align: center;
 vertical-align: middle!important;
@@ -58,19 +57,64 @@ vertical-align: middle!important;
 		margin: 3px;
 		}
 	.clear{clear:both}
-#show0{display:none;}
-#show1{}
+   #show0{display:none;}
+   #show1{}
  </style>
- <script type="text/javascript">
+    <script type='text/javascript' >
+		 
+var vod = {
+	show_list : function(id){
+		var h = $('#vodoption'+id).css('height');
+		console.log(h);
+		if(h=='40px'){
+			$('#vodoption'+id).css('height', 'auto');
+			$('#arr'+id).html('&#xe619;');
+		}else{
+			$('#vodoption'+id).css('height', '40px');
+			$('#arr'+id).html('&#xe61a;');
+		}
+	}
+	,vodFav : function(id){
+		$.getJSON("{:U('Vod/vodFav')}?id="+id+"&callback=?",function(data) {
+           	if(data){
+               	if(data.msg =='ok'){
+                   	$("#favnum").text(parseInt($("#favnum" ).text()) + 1);
+                   	
+                   	  cscms.layer.msg('恭喜你，收藏成功！',{icon:1});
+               	}else{
+                   	cscms.layer.msg(data.msg,{icon:2});
+               	}
+           	} else {
+                cscms.layer.msg('网络故障，连接失败!',{icon:2});
+           	}
+     	});
+	}
+	,vodZan : function(id){
+		$.getJSON(cscms_path+"index.php/vod/ajax/vodding/"+id+"?callback=?",function(data) {
+           	if(data){
+               	if(data['msg']=='ok'){
+                   	$("#zannum").text(parseInt($("#zannum" ).text()) + 1);
+               	}else{
+                   	cscms.layer.msg(data['msg'],{icon:2});
+               	}
+           	} else {
+                cscms.layer.msg('网络故障，连接失败!',{icon:2});
+           	}
+     	});
+	}
+}
+	</script>
+	<script type="text/javascript">
 		var filename=window.location.pathname;    
 	   $(function(){
 		  $("a[href='"+filename+"']").parent().addClass('active');
 		});
 	</script>
+
 </head>
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
-            <include file="Public/header" />
+            <include file="Public/header"/>
 
         <!-- END HEADER -->
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
@@ -79,11 +123,11 @@ vertical-align: middle!important;
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
- <div class="page-sidebar-wrapper">
+  <div class="page-sidebar-wrapper">
 	<!-- BEGIN SIDEBAR -->
 	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 	<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-	<include file="Public/left" />
+	<include file="Public/left"/>
 	<!-- END SIDEBAR -->
 </div> 
  
@@ -94,51 +138,38 @@ vertical-align: middle!important;
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
+                
+               
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
+              
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
+                    
                       <div class="row">
                         <div class="col-md-12">
                             <!-- Begin: life time stats -->
                             <div class="portlet light bordered">
-                                                  <div class="portlet-title">
+                                  <div class="portlet-title">
                                         <div class="caption">
-                                            <i class="fa fa-upload fa-lg font-red"></i>
-                                            <span class="caption-subject font-red sbold uppercase">我的视频 &nbsp;</span>
+                                            <i class="fa fa-search fa-lg font-red"></i>
+                                            <span class="caption-subject font-red sbold uppercase">搜索页 &nbsp;</span>
  
-                                              <span class="caption-helper"> （你总共上传了 {$num} 部视频） </span>
-											<a href="{:U('Vod/up')}">上传视频</a>
+                                              <span class="caption-helper"> （总共有 {$num} 部符合查询条件的视频） </span>
+ 
                                         </div>
-                                        <div class="actions">
-                                        	
-                               <div class="btn-group">
-                                            <a class="btn red btn-outline  btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false"> 浏览模式
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                  <a href="javascript:;">  <i class="fa fa-check"></i> 详情模式</a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="/index.php/vod/user/vod/pic"> 图文模式</a>
-                                                </li>
-                                                
-                                            </ul>
-                                        </div>
-                                                                    
-                                                                    
-                                        </div>
+                                       
                                     </div>
                     
                                 <div class="portlet-body">
                                    <div class="tabbable-line">
                                         <ul class="nav nav-tabs">
-                                      <li ><a href="{:U('Vod/index')}">全部视频</a></li>
-												<volist name='cate' id='vo'>
-								               	<li><a href="{:U('Vod/index',array('id'=>$vo['id']))}">{$vo.name}</a></li>
-												</volist>
+                               
+                          <li class="active">  <a >查询结果</a></li>
+                        
+                                        	
+                                 
 	                                  </ul>
                                         <div class="tab-content">
                                         	
@@ -148,7 +179,7 @@ vertical-align: middle!important;
                                                             <tr>
                                                                 <th> 视频名称 </th>
                                                                 <th> 类别 </th>
-                                                                <th> 分类 </th>
+                                                                <th> 上传会员 </th>
                                                                 <th> 状态</th>
                                                                 <th> 发布时间 </th>
                                                                 <th> 视频ID </th>
@@ -156,7 +187,8 @@ vertical-align: middle!important;
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                        	<empty name='list'>
+                                                        
+														<empty name='list'>
 															<div class="note note-success">
 																<h4>暂无视频数据！</h4>
 																
@@ -174,7 +206,7 @@ vertical-align: middle!important;
                                                                 {$vo.name}
                                                                 </td>
                                                                 <td title='ID:{$vo.id}'>
-                                                                {$vo.ucat}
+                                                                {$vo.username}
 	                                                             </td> 
                                                               
        <td class="text-primary"> <i class="fa fa-check-square-o"></i> 已转码 </td>
@@ -223,7 +255,7 @@ vertical-align: middle!important;
                                     </div>
 									</volist>
 									</empty>
-                                                        </tbody>
+									</tbody>
                                                     </table>
                
                
@@ -240,9 +272,6 @@ vertical-align: middle!important;
                                     </div>
                                    
                
- 
- 
-                                        
                                           
                                                 </div>
                                             </div>
@@ -267,7 +296,7 @@ vertical-align: middle!important;
   
             <!-- END QUICK SIDEBAR -->
         </div>
-                <div class="page-footer">
+        <div class="page-footer">
             <div class="page-footer-inner"> <script>document.write(new Date().getFullYear());</script>
  &copy; 版权所有
                 <a target="_blank" href="http://www.27pan.com">www.27PAN.com</a> &nbsp;|&nbsp;
@@ -279,9 +308,9 @@ vertical-align: middle!important;
         </div> 
 <!-- END CONTAINER -->
          <!--[if lt IE 9]>
-<script src="/assets/global/plugins/respond.min.js"></script>
-<script src="/assets/global/plugins/excanvas.min.js"></script> 
-<script src="/assets/global/plugins/ie8.fix.min.js"></script> 
+<script src="http://www.27pan.com/assets/global/plugins/respond.min.js"></script>
+<script src="http://www.27pan.com/assets/global/plugins/excanvas.min.js"></script> 
+<script src="http://www.27pan.com/assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="http://www.27pan.com/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -315,8 +344,9 @@ vertical-align: middle!important;
 <script src="http://www.27pan.com/assets/pages/scripts/components-clipboard.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-    	$('#a3').addClass('active');
+    	$('#vall').addClass('open');
+    	$("#vodlist").css('display','block'); 
     });
 </script>
 </body>
-</html> 
+</html>  

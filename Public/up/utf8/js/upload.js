@@ -93,6 +93,13 @@ jQuery(function() {
             //分片验证是否已传过，用于断点续传
 			
             var task = new $.Deferred();
+			/*新增获取服务器节点*/
+			var ser = $('#ser').val();
+			
+			if(ser){
+				ServerUrl = ser + '/uploads';
+				
+			}
             $.ajax({
                 type: "GET",
                 url: ServerUrl,
@@ -228,6 +235,10 @@ jQuery(function() {
         html += "    </div>";
         html += "</div>";
         $list.append(html);
+		
+		/*新增获取上传文件大小节点*/
+		$("#size").val(file_size_M);
+		$("#s_title").val(file.name);
     });
     // 文件上传过程中创建进度条实时显示。
     uploader.on('uploadProgress',

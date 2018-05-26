@@ -1,1 +1,102 @@
-头部
+<div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+ 
+                    <a href="{:U('Vod/index')}">
+                        <img src="__PUBLIC__/web/logo.png" alt="logo" class="logo-default" /> </a>
+                    <div class="menu-toggler sidebar-toggler">
+                        <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                    </div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN PAGE ACTIONS -->
+                <!-- DOC: Remove "hide" class to enable the page header actions -->
+                
+                <div class="page-actions">
+                    <div class="btn-group">
+                        <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <span class="hidden-sm hidden-xs">快捷操作&nbsp;</span>
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        
+                        <ul class="dropdown-menu" role="menu">
+                            
+                            <li>
+                                <a href="{:U('Vod/uclass')}">
+                                    <i class="fa fa-plus"></i> 添加分类 </a>
+                            </li>
+                            
+                            
+                        </ul>
+                    </div>
+                  
+                     
+				</div>
+                
+                
+     
+                <!-- END PAGE ACTIONS -->
+                <!-- BEGIN PAGE TOP -->
+                
+                <div class="page-top">
+                    <!-- BEGIN HEADER SEARCH BOX -->
+                    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+                    
+                    
+                    <form class="search-form open" action="{:U('Vod/serach')}">
+                        <div class="input-group">
+                        	  <input type="text" name="key" id="key" class="form-control input-sm" placeholder="请输入视频标题..." value="">
+                       
+                            <span class="input-group-btn">
+                                <a href="javascript:;" class="btn submit" lay-submit lay-filter="search">
+                                    <i class="icon-magnifier"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </form>
+                    
+                 
+                    <!-- END HEADER SEARCH BOX -->
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+               				<div id="cscms_login" class="top-menu"> <ul class="nav navbar-nav pull-right">
+               
+                            <!-- END TODO DROPDOWN -->
+                            <!-- BEGIN USER LOGIN DROPDOWN -->
+                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                            <li class="dropdown dropdown-user dropdown-dark">
+                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <span class="username username-hide-on-mobile">{$username}</span>
+                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                                       <img alt="nzqk的头像" src="http://www.27pan.com/attachment/nan_nopic.jpg" class="img-circle">   </a>
+                          
+                            </li>
+                            <!-- END USER LOGIN DROPDOWN -->
+                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                          <li class="dropdown dropdown-extended dropdown-notification dropdown-dark">
+                                <a href="javascript:cscms.logOut();;" class="dropdown-toggle">
+                                    <i class="icon-logout"></i>
+                                </a>
+                        
+                            </li>
+                           
+                            <!-- END QUICK SIDEBAR TOGGLER -->
+                        </ul>
+                  
+                   </div>
+		        <script type='text/javascript'>
+		            var cscms_loginlink = 'http://www.27pan.com/index.php/api/ulog/log/vod';
+		            var cscms_loginaddlink = 'http://www.27pan.com/index.php/api/ulog/login';
+		            var cscms_logoutlink = '{:U("User/logout")}';
+		            //cscms.login();
+		        </script>
+                    <!-- END TOP NAVIGATION MENU -->
+                </div>
+                <!-- END PAGE TOP -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
