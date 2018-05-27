@@ -172,11 +172,11 @@ class VodController extends ComController
 		$map = array(
 			'fid' => $vod['fid'].$_SESSION['id'].',',
 		);
-		M('vod')->where($where)->save($map);
+		
 		$data = array(
 			'cid' => $vod['cid'],
 			'size' => $vod['size'],
-			'title' => $vod['s_title'],
+			'title' => $vod['title'],
 			'titlepic' => $vod['titlepic'],
 			'mid' => $vod['mid'],
 			'odownpath1' => $vod['odownpath1'],
@@ -187,7 +187,7 @@ class VodController extends ComController
 			'videofileurl' => $vod['videofileurl'],
 			'addtime' => $vod['addtime'],
 		);
-		if(M('fav')->data($data)->add()){
+		if(M('fav')->data($data)->add() && M('vod')->where($where)->save($map)){
 			$this->ajaxReturn(array('msg'=>'ok'));
 			exit;
 		}else{
