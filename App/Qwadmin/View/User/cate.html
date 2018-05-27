@@ -25,17 +25,11 @@
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="cf">
                             <form class="form-inline" action="" method="get">
-                                <a class="btn btn-info" href="{:U('add')}" value="">新增</a>
                                 
-                                <label class="inline">服务器名称</label>
+                                <label class="inline">名称</label>
                                 <input type="text" name="keyword" value="{:I('keyword')}" class="form-control">
 
-                                <label class="inline">&nbsp;&nbsp;服务器排序：</label>
-                                <select name="order" class="form-control">
-                                    <option value="desc" <if condition="I('order') eq desc">selected</if>>发布时间降序</option>
-                                    <option value="asc" <if condition="I('order') eq asc">selected</if> >发布时间升序</option>
-
-                                </select>
+                                
 
 
                                 <button type="submit" class="btn btn-purple btn-sm">
@@ -50,11 +44,8 @@
                                 <thead>
                                 <tr>
                                     <th class="center"><input class="check-all" type="checkbox" value=""></th>
-                                    <th>服务器名称</th>
-                                    <th>ip</th>
-									<th>域名</th>
-                                    <th>添加时间</th>
-									<th>状态</th>
+                                    <th>分类名称</th>
+                                    <th>用户</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -63,21 +54,11 @@
                                     <tr>
                                         <td class="center"><input class="aids" type="checkbox" name="aids[]"
                                                                   value="{$val['id']}"></td>
-                                        <td><a href="{:U('index',array('sid'=>$val['id']))}" title="{$val['name']}">{$val['name']}</a>
-                                        </td>
-                                        <td>{$val['ip']}</td>
-										<td>{$val['domain']}</td>
-                                        <td>{$val['addtime']|date="Y-m-d H:i:s",###}</td>
-										<td>
-											<if condition="$val['status'] eq 1">
-											<a href="{:U('Ser/status',array('id'=>$val['id'],'status'=>2))}">禁用</a>
-											<else/>
-											<a href="{:U('Ser/status',array('id'=>$val['id'],'status'=>1))}">启用</a>
-											</if>
-										</td>
-                                        <td><a href="{:U('edit',array('aid'=>$val['id']))}"><i
-                                                class="ace-icon fa fa-pencil bigger-100"></i>修改</a>&nbsp&nbsp;<a
-                                                href="javascript:;" val="{:U('del',array('aids'=>$val['id']))}" class="del"><i
+                                        
+                                        <td>{$val['ucat']}</td>
+										<td>{$val['username']}</td>
+                                        <td>&nbsp&nbsp;<a
+                                                href="javascript:;" val="{:U('delCate',array('aids'=>$val['id']))}" class="del"><i
                                                 class="ace-icon fa fa-trash-o bigger-100 red"></i>删除</a></td>
                                     </tr>
                                 </volist>

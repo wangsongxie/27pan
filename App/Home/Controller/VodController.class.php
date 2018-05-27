@@ -132,7 +132,7 @@ class VodController extends ComController
         $str = "<option value=\$id \$selected>\$spacer\$ucat</option>"; //生成的形式
         $cate = $tree->get_tree(0, $str, 0);
         $this->assign('mycat', $cate);//导航
-		$this->ser = M('ser')->order('id desc')->select();
+		$this->ser = M('ser')->where(array('status'=>1))->order('id desc')->select();
 		$this->display();
 	}
 

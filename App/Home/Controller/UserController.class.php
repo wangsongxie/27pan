@@ -23,6 +23,10 @@ class UserController extends Controller
 	        		'username' => trim($_POST['username']),
 	        		);
 	        	$user = M('user')->where($data)->find();
+				if($user['status'] == 2){
+					$this->error('账户被禁用');
+					exit;
+				}
 	        	if($user){
 	        		session('name',$data['username']);
 	        		session('id',$user['id']);

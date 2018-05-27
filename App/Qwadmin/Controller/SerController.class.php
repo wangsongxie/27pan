@@ -30,7 +30,7 @@ class SerController extends ComController{
         $where = '1 = 1 ';
         
         if ($keyword) {
-            $where .= "and {$prefix}ser.title like '%{$keyword}%' ";
+            $where .= "and {$prefix}ser.name like '%{$keyword}%' ";
         }
         //默认按照时间降序
         $orderby = "addtime desc";
@@ -56,11 +56,11 @@ class SerController extends ComController{
         if ($aids) {
             if (is_array($aids)) {
                 $aids = implode(',', $aids);
-                $map['aid'] = array('in', $aids);
+                $map['id'] = array('in', $aids);
             } else {
-                $map = 'aid=' . $aids;
+                $map = 'id=' . $aids;
             }
-            if (M('article')->where($map)->delete()) {
+            if (M('ser')->where($map)->delete()) {
                 addlog('删除文章，AID：' . $aids);
                 $this->success('恭喜，文章删除成功！');
             } else {
@@ -85,7 +85,17 @@ class SerController extends ComController{
         }
         $this->display('form');
     }
-
+	
+	public function status(){
+		$where['id'] = $_GET['id'] ? $_GET['id'] : $this->error('参数错误');
+		$data['status'] = $_GET['status'] ? $_GET['status'] : $this->error('参数错误');
+		if(M('Ser')->where($where)->save($data)){
+			$this->success('操作成功');
+		}else{
+			$this->error('操作失败');
+		}
+	}
+	
     public function update($aid = 0)
     {
 
