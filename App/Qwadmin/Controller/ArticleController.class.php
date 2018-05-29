@@ -19,11 +19,6 @@ class ArticleController extends ComController
     public function add()
     {
 
-        $category = M('category')->field('id,pid,name')->order('o asc')->select();
-        $tree = new Tree($category);
-        $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
-        $category = $tree->get_tree(0, $str, 0);
-        $this->assign('category', $category);//导航
         $this->display('form');
     }
 
@@ -41,30 +36,17 @@ class ArticleController extends ComController
         $keyword = isset($_GET['keyword']) ? htmlentities($_GET['keyword']) : '';
         $order = isset($_GET['order']) ? $_GET['order'] : 'DESC';
         $where = '1 = 1 ';
-        if ($sid) {
-            $sids_array = category_get_sons($sid);
-            $sids = implode(',',$sids_array);
-            $where .= "and {$prefix}article.sid in ($sids) ";
-        }
-        if ($keyword) {
-            $where .= "and {$prefix}article.title like '%{$keyword}%' ";
-        }
+        
         //默认按照时间降序
         $orderby = "t desc";
         if ($order == "asc") {
 
             $orderby = "t asc";
         }
-        //获取栏目分类
-        $category = M('category')->field('id,pid,name')->order('o asc')->select();
-        $tree = new Tree($category);
-        $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
-        $category = $tree->get_tree(0, $str, $sid);
-        $this->assign('category', $category);//导航
 
 
         $count = $article->where($where)->count();
-        $list = $article->field("{$prefix}article.*,{$prefix}category.name")->where($where)->order($orderby)->join("{$prefix}category ON {$prefix}category.id = {$prefix}article.sid")->limit($offset . ',' . $pagesize)->select();
+        $list = $article->field("{$prefix}article.*")->where($where)->order($orderby)->limit($offset . ',' . $pagesize)->select();
 
         $page = new \Think\Page($count, $pagesize);
         $page = $page->show();
@@ -103,12 +85,6 @@ class ArticleController extends ComController
         $article = M('article')->where('aid=' . $aid)->find();
         if ($article) {
 
-            $category = M('category')->field('id,pid,name')->order('o asc')->select();
-            $tree = new Tree($category);
-            $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
-            $category = $tree->get_tree(0, $str, $article['sid']);
-            $this->assign('category', $category);//导航
-
             $this->assign('article', $article);
         } else {
             $this->error('参数错误！');
@@ -120,13 +96,8 @@ class ArticleController extends ComController
     {
 
         $aid = intval($aid);
-        $data['sid'] = isset($_POST['sid']) ? intval($_POST['sid']) : 0;
         $data['title'] = isset($_POST['title']) ? $_POST['title'] : false;
-        $data['seotitle'] = isset($_POST['seotitle']) ? $_POST['seotitle'] : '';
-        $data['keywords'] = I('post.keywords', '', 'strip_tags');
-        $data['description'] = I('post.description', '', 'strip_tags');
         $data['content'] = isset($_POST['content']) ? $_POST['content'] : false;
-        $data['thumbnail'] = I('post.thumbnail', '', 'strip_tags');
         $data['t'] = time();
         if (!$data['sid'] or !$data['title'] or !$data['content']) {
             $this->error('警告！文章分类、文章标题及文章内容为必填项目。');

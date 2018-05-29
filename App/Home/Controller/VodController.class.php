@@ -21,7 +21,7 @@ class VodController extends ComController
 		}
 		
         $count = $article->where($where)->count();
-        $list = $article->field("{$prefix}vod.*,{$prefix}category.name,{$prefix}ucat.ucat")->where($where)->join("{$prefix}category ON {$prefix}category.id = {$prefix}vod.cid")->join("{$prefix}ucat ON {$prefix}ucat.id = {$prefix}vod.mid")->order($orderby)->limit($offset . ',' . $pagesize)->select();
+        $list = $article->field("{$prefix}vod.*,{$prefix}category.name")->where($where)->join("{$prefix}category ON {$prefix}category.id = {$prefix}vod.cid")->order($orderby)->limit($offset . ',' . $pagesize)->select();
         
         $page = new \Think\Page($count, $pagesize);
         $page = $page->show();
@@ -90,6 +90,7 @@ class VodController extends ComController
 	public function help(){
 		
 		$this->username = $_SESSION['name'];
+		$this->article = M('article')->order('t')->select();
 		$this->display();
 	}
 
@@ -216,6 +217,7 @@ class VodController extends ComController
 		
         $this->assign('list', $list);
         $this->assign('page', $page);
+		$this->cat = M('category')->field('name')->where(array('id'=>$_GET['id']))->find();
 		$this->display();
 	}
 	public function serach($id = 0, $p = 1){

@@ -113,19 +113,12 @@ vertical-align: middle!important;
                                         <div class="actions">
                                         	
                                <div class="btn-group">
-                                            <a class="btn red btn-outline  btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false"> 浏览模式
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                  <a href="javascript:;">  <i class="fa fa-check"></i> 详情模式</a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="/index.php/vod/user/vod/pic"> 图文模式</a>
-                                                </li>
-                                                
-                                            </ul>
+                                            
+                                            
+											<!---->
+											
+											
+											
                                         </div>
                                                                     
                                                                     
@@ -148,7 +141,6 @@ vertical-align: middle!important;
                                                             <tr>
                                                                 <th> 视频名称 </th>
                                                                 <th> 类别 </th>
-                                                                <th> 分类 </th>
                                                                 <th> 状态</th>
                                                                 <th> 发布时间 </th>
                                                                 <th> 视频ID </th>
@@ -168,14 +160,11 @@ vertical-align: middle!important;
                                                               
                                                                <tr>
                                                                 <td>
-                                                             <a href='{$vo.share}' target='_blank'>{$vo.title}</a> <span class="label label-info">{$vo.size}MB <i  id="show1" class="fa fa-laptop"></i></span> 
+                                                             <a href='http://localhost/?vp={$vo.videoid}' target='_blank'>{$vo.title}</a> <span class="label label-info">{$vo.size}MB <i  id="show1" class="fa fa-laptop"></i></span> 
                                                                 </td>
                                                                 <td>
                                                                 {$vo.name}
                                                                 </td>
-                                                                <td title='ID:{$vo.id}'>
-                                                                {$vo.ucat}
-	                                                             </td> 
                                                               
        <td class="text-primary"> <i class="fa fa-check-square-o"></i> 已转码 </td>
        <td>  {:tmspan($vo['addtime'])}   </td>
@@ -187,7 +176,7 @@ vertical-align: middle!important;
                                                
        
                  <a href="#long{$vo.id}" data-toggle="modal"  class="btn btn-sm btn-default"> <i class="fa fa-file-picture-o"></i> 预览图 </a>  
-                 <a  href="http://api2.my230.com/?vid={$vo.videoid}"   target="_blank" class="btn btn-sm btn-default">  <i class="fa fa-search"></i> 预览 </a>
+                 <a  href="{$vo.url}{$vo.videoid}"   target="_blank" class="btn btn-sm btn-default">  <i class="fa fa-search"></i> 预览 </a>
           <a  href="javascript:vod.vodFav({$vo.id});" class="btn btn-sm btn-default">  <i class="fa fa-heart"></i> 收藏 </a>
 
                                                                

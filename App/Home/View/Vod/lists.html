@@ -10,7 +10,7 @@
     <meta charset=utf-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1" name="viewport" />
-     <title>电影</title>
+     <title>{$cat['name']}</title>
 <script type='text/javascript'>var cscms_path='http://www.27pan.com/';</script>
 <link rel='stylesheet' href='http://www.27pan.com/packs/layui/css/layui.css'>
 <script type='text/javascript' src='http://www.27pan.com/packs/layui/layui.js'></script>
@@ -208,7 +208,7 @@ var vod = {
                                                               
                                                                <tr>
                                                                 <td>
-                                                             <a href='{$vo.share}' target='_blank'>{$vo.title}</a> <span class="label label-info">{$vo.size}MB <i  id="show1" class="fa fa-laptop"></i></span> 
+                                                             <a href='{$vo.url}{$vo.videoid}' target='_blank'>{$vo.title}</a> <span class="label label-info">{$vo.size}MB <i  id="show1" class="fa fa-laptop"></i></span> 
                                                                 </td>
                                                                 <td>
                                                                 {$vo.name}
@@ -227,7 +227,7 @@ var vod = {
                                                
        
                  <a href="#long{$vo.id}" data-toggle="modal"  class="btn btn-sm btn-default"> <i class="fa fa-file-picture-o"></i> 预览图 </a>  
-                 <a  href="http://api2.my230.com/?vid={$vo.videoid}"   target="_blank" class="btn btn-sm btn-default">  <i class="fa fa-search"></i> 预览 </a>
+                 <a  href="{$vo.url}{$vo.videoid}"   target="_blank" class="btn btn-sm btn-default">  <i class="fa fa-search"></i> 预览 </a>
           <a  href="javascript:vod.vodFav({$vo.id});" class="btn btn-sm btn-default">  <i class="fa fa-heart"></i> 收藏 </a>
 
                                                                
