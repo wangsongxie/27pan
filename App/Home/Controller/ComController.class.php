@@ -22,7 +22,9 @@ class ComController extends Controller
         	);
         $user = M('user')->where($data)->find();
         if(!$user){
-        	$this->success('',U('User/login'));
+			$url = U('User/login');
+			header("location:$url");
+        	//$this->success('',U('User/login'));
         	exit(0);
         	//$this->redirect(U('User/login'));
         }

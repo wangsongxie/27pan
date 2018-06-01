@@ -16,30 +16,37 @@
 			<ul class="sub-menu">
 				
         
-        <li class="nav-item" id="a1">
+        <li class="nav-item" >
 				<a href="{:U('Vod/eclass')}"  class="nav-link ">
 				<i class="fa fa-plus"></i>
 				<span class="title">添加分类</span>
+				
 				</a>
 				</li>
 					
-					<li class="nav-item" id="a2">
+					<li class="nav-item" >
 				<a href="{:U('Vod/index')}" class="nav-link ">
 				<span class="title">我的视频</span>
-				 
+				 <if condition='$num'>
+				<span class="badge badge-success">{$num}</span>
+				</if>
 				</a>
 				</li>
 				
-					<li class="nav-item " id="a3">
+					<li class="nav-item " >
 				<a href="{:U('Vod/uclass')}" class="nav-link ">
 				<span class="title">我的分类</span>
-		   
+				<if condition='$catsd'>
+				<span class="badge badge-success">{$catsd}</span>
+				</if>
 				</a>
 				</li>
-					<li class="nav-item " id="a4">
+					<li class="nav-item " >
 				<a href="{:U('Vod/fav')}" class="nav-link ">
 				<span class="title">我的收藏</span>
-		 
+				<if condition='$fav'>
+				<span class="badge badge-success">{$fav}</span>
+				</if>
 				</a>
 				</li>
 			  <li class="nav-item" id="vall">

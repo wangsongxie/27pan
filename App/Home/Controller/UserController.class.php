@@ -83,7 +83,9 @@ class UserController extends Controller
 				$this->error('修改失败');
 			}
 		}else{
-
+			$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 			$this->user = M('user')->where(array('username'=>$_SESSION['name']))->find();
 			$this->display();
 		}
@@ -107,6 +109,9 @@ class UserController extends Controller
 				exit;
 			}
 		}
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 		$this->display();
 	}
 
@@ -127,6 +132,9 @@ class UserController extends Controller
 
         $page = new \Think\Page($count, $pagesize);
         $page = $page->show();
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
         $this->assign('list', $list);
         $this->assign('page', $page);
 		$this->display();

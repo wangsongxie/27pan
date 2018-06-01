@@ -26,6 +26,8 @@ class VodController extends ComController
         $page = new \Think\Page($count, $pagesize);
         $page = $page->show();
         $this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 		$this->cate = M('category')->field('id,name')->order('o')->select();
         $this->assign('list', $list);
         $this->assign('page', $page);
@@ -41,6 +43,16 @@ class VodController extends ComController
 		$uid = M('user')->where(array('username'=>$this->username))->find();
 		$this->number = M('user')->where(array('uid'=>$uid['id']))->count();
 		$this->cat = M('ucat')->where(array('uid'=>$uid['id']))->select();
+		//我的分类
+        $cate = M('ucat')->field('id,pid,ucat')->where(array('uid'=>$_SESSION['id']))->select();
+        $tree = new Tree($cate);
+        $str = "<li>\$spacer\$ucat</li>"; //生成的形式
+        $cate = $tree->get_tree(0, $str, 0);
+        $this->assign('mycat', $cate);//导航
+		
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 		$this->display();
 	}
 	
@@ -73,8 +85,10 @@ class VodController extends ComController
 				);
 			if(M('ucat')->data($data)->add()){
 				$this->success('添加成功');
+				exit;
 			}else{
 				$this->error('添加失败');
+				exit;
 			}
 		}else{
 			$this->number = M('user')->where(array('uid'=>$uid['id']))->count();
@@ -91,6 +105,9 @@ class VodController extends ComController
 		
 		$this->username = $_SESSION['name'];
 		$this->article = M('article')->order('t')->select();
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 		$this->display();
 	}
 
@@ -113,7 +130,9 @@ class VodController extends ComController
         
         $page = new \Think\Page($count, $pagesize);
         $page = $page->show();
-        $this->num = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+        $this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 		$this->cate = M('category')->field('id,name')->order('o')->select();
         $this->assign('list', $list);
         $this->assign('page', $page);
@@ -134,10 +153,33 @@ class VodController extends ComController
         $cate = $tree->get_tree(0, $str, 0);
         $this->assign('mycat', $cate);//导航
 		$this->ser = M('ser')->where(array('status'=>1))->order('id desc')->select();
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
+		$this->display();
+	}
+	
+	public function edit($id){
+		$category = M('category')->field('id,pid,name')->order('o asc')->select();
+        $tree = new Tree($category);
+        $str = "<option value=\$id \$selected>\$spacer\$name</option>"; //生成的形式
+        $category = $tree->get_tree(0, $str, 0);
+        $this->assign('category', $category);//导航
+        //我的分类
+        $cate = M('ucat')->field('id,pid,ucat')->where(array('uid'=>$_SESSION['id']))->select();
+        $tree = new Tree($cate);
+        $str = "<option value=\$id \$selected>\$spacer\$ucat</option>"; //生成的形式
+        $cate = $tree->get_tree(0, $str, 0);
+        $this->assign('mycat', $cate);//导航
+		$this->ser = M('ser')->where(array('status'=>1))->order('id desc')->select();
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
+		$this->up = M('vod')->where(array('id'=>$id))->find();
 		$this->display();
 	}
 
-	public function upd(){
+	public function upd($id){
 		$data = array(
 			'cid' => $_POST['cid'],
 			'size' => $_POST['size'],
@@ -152,10 +194,18 @@ class VodController extends ComController
 			'videofileurl' => $_POST['videofileurl'],
 			'addtime' => time(),
 		);
-		if(M('vod')->data($data)->add()){
-			$this->success('提交成功');
+		if($id){
+			if(M('vod')->where(array('id'=>$id))->data($data)->save){
+				$this->success('编辑成功');
+			}else{
+				$this->error('编辑失败,请上传视频');
+			}
 		}else{
-			$this->error('提交失败');
+			if(M('vod')->data($data)->add()){
+				$this->success('提交成功');
+			}else{
+				$this->error('提交失败');
+			}
 		}
 	}
 
@@ -218,6 +268,9 @@ class VodController extends ComController
         $this->assign('list', $list);
         $this->assign('page', $page);
 		$this->cat = M('category')->field('name')->where(array('id'=>$_GET['id']))->find();
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
 		$this->display();
 	}
 	public function serach($id = 0, $p = 1){
@@ -237,7 +290,9 @@ class VodController extends ComController
         $page = new \Think\Page($count, $pagesize);
         $page = $page->show();
         $this->num = $count;
-		
+		$this->num = M('vod')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->fav = M('fav')->where(array('uid'=>$_SESSION['id']))->count();
+		$this->catsd = M('ucat')->where(array('uid'=>$uid['id']))->count();
         $this->assign('list', $list);
         $this->assign('page', $page);
 		$this->display();
